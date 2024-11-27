@@ -5,6 +5,9 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
+const authRoutes = require("./routes/authRoutes");
+const bookRoutes = require("./routes/bookRoutes");
+
 const app = express();
 
 // Middleware
@@ -21,6 +24,9 @@ mongoose
   .catch((err) => console.error("MongoDB connection error:", err));
 
 // Routes
+app.use("/api/auth", authRoutes);
+app.use("/api/books", bookRoutes);
+
 app.get("/", (req, res) => res.send("E-Library Backend is Running"));
 
 // Start Server
