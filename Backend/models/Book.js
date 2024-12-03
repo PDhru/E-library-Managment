@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const bookSchema = new mongoose.Schema({
+const BookSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
@@ -17,15 +17,20 @@ const bookSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
-  availability: {
+  isAvailable: {
     type: Boolean,
-    default: true, // True if the book is available for borrowing
+    default: true,
   },
   borrowedBy: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "User", // Reference to the user who borrowed the book
+    ref: "User",
     default: null,
+  },
+  imageUrl: {
+    type: String,
+    required: true,
   },
 });
 
-module.exports = mongoose.model("Book", bookSchema);
+const Book = mongoose.model("Book", BookSchema);
+module.exports = Book;

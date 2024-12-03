@@ -1,23 +1,26 @@
 const express = require("express");
 const {
+  addBook,
   getBooks,
   getBookById,
-  createBook,
   updateBook,
   deleteBook,
   borrowBook,
   returnBook,
 } = require("../controllers/bookController");
-
+const {
+  authMiddleware,
+  authenticateUser,
+} = require("../middlewares/authMiddleware");
+const upload = require("../middlewares/uploadMiddleware");
 const router = express.Router();
 
-// Routes
-router.get("/", getBooks); // Get all books
-router.get("/:id", getBookById); // Get book by ID
-router.post("/", createBook); // Add a new book
-router.put("/:id", updateBook); // Update book details
-router.delete("/:id", deleteBook); // Delete a book
-router.post("/:id/borrow", borrowBook); // Borrow a book
-router.post("/:id/return", returnBook); // Return a book
+router.post("/add", upload.single("image"), addBook);
+router.put("/:id", upload.single("image"), updateBook);
+router.get("/", getBooks);
+router.get("/:id", getBookById);
+router.delete("/:id", deleteBook);
+router.put("/:id/borrow", authenticateUser, borrowBook);
+router.put("/return/:id", authMiddleware, returnBook);
 
 module.exports = router;

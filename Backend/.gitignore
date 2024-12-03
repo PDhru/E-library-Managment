@@ -1,0 +1,37 @@
+# Node.js related files
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+logs/
+*.log
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# dotenv environment variable files
+.env
+
+# Image uploads directory (if storing images locally)
+uploads/
+
+# Ignore database dumps or local development files
+*.local
+*.dev
+*.test
+*.sublime-workspace
+.idea/
+.vscode/
+
+# Ignore coverage directory for testing
+coverage/
+
+# Ignore build directories
+dist/
+build/
+
+# Ignore Heroku-related files
+.heroku/
