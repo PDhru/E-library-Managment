@@ -16,6 +16,7 @@ const Login = () => {
                 email,
                 password
             });
+            const { user } = response.data;
             localStorage.setItem('authToken', response.data.token);
             setMessage('Login successful! Redirecting...');
             navigate("/"); 
@@ -24,7 +25,7 @@ const Login = () => {
             console.error(error.response ? error.response.data : error.message);
         }
     };
-
+    
     return (
         <section className='bg-white vh-100'>
             <div className='container-fluid'>

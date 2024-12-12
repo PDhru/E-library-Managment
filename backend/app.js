@@ -17,7 +17,7 @@ dotenv.config();
 
 // Routes
 app.use('/api/auth', authRoutes);
-app.use('/api/books', bookRoutes); 
+app.use('/api/books', bookRoutes);
 
 app.get('/', (req, res) => {
   res.send('Recipe Management API is running...');

@@ -9,7 +9,6 @@ import AddBooks from "./pages/AddBooks";
 import PrivateRoute from "./components/PrivateRoute"
 import MyBooks from "./pages/MyBooks";
 import EditBooks from "./pages/EditBooks";
-import BorrowedBooks from "./pages/BorrowedBooks";
 
 
 const router = createBrowserRouter(
@@ -23,7 +22,6 @@ const router = createBrowserRouter(
           <Route path="/addbooks" element={<AddBooks />} />
           <Route path="/my-books" element={<MyBooks />} />
           <Route path="/update-book/:id" element={<EditBooks />} />
-          <Route path="/borrowed-books" element={<BorrowedBooks />} />
         </Route>
       </Route>
     </>

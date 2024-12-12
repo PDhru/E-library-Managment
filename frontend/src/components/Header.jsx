@@ -21,7 +21,7 @@ const Header = () => {
                         <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
                             <li className="nav-item"><Link className="nav-link" aria-current="page" to={"/"}>Home</Link></li>
                             <li className="nav-item"><Link className="nav-link" aria-current="page" to={"/addbooks"}>Add Books</Link></li>
-                            <li className="nav-item"><Link className="nav-link" aria-current="page" to={"/borrowed-books"}>Borrowed Books</Link></li>
+                            {/* <li className="nav-item"><Link className="nav-link" aria-current="page" to={"/borrowed-books"}>Borrowed Books</Link></li> */}
                             <li className="nav-item"><Link className="nav-link" aria-current="page" to={"/my-books"}>My Books</Link></li>
                         </ul>
                         <button className='btn btn-primary' onClick={handleLogout} >Logout</button>

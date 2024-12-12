@@ -3,11 +3,10 @@ const {
   addBook,
   updateBook,
   deleteBook,
-  borrowBook,
-  returnBook,
+  borrowBook, returnBook,
   getBooksByUser,
   getAllBooks,  
-  getBorrowedBooks,
+  // getBorrowedBooks,
 } = require('../controllers/bookController');
 const { authMiddleware,authenticateUser } = require('../middlewares/authMiddleware');
 const upload = require('../middlewares/uploadMiddleware');
@@ -20,9 +19,11 @@ router.put('/edit/:id', authMiddleware, updateBook);
 router.get('/my-books', authMiddleware, getBooksByUser); 
 router.delete('/:id', authMiddleware, deleteBook);
 
-router.put('/:bookId/borrow', authenticateUser, borrowBook);
-router.get('/borrowed', authenticateUser, getBorrowedBooks);
+// router.put('/:bookId/borrow', authenticateUser, borrowBook);
+// router.get('/borrowed', authenticateUser, getBorrowedBooks);
 
-router.put('/:id/return', authenticateUser, returnBook);;
+// router.put('/:id/return', authenticateUser, returnBook);;
+router.patch('/borrow/:id', authMiddleware, borrowBook);
+router.patch('/return/:id', authMiddleware, returnBook);
 
 module.exports = router;

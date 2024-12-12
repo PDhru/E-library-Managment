@@ -33,7 +33,6 @@ exports.login = async (req, res) => {
     if (!isMatch) {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
-
     const token = jwt.sign(
       { user: { _id: user._id, name: user.name } }, 
       process.env.JWT_SECRET,
@@ -43,5 +42,33 @@ exports.login = async (req, res) => {
     res.status(200).json({ token });
   } catch (error) {
     res.status(500).json({ message: 'Server Error' });
+  }
+};
+
+exports.getCurrentUser = async (req, res) => {
+  try {
+    const token = req.header('Authorization') && req.header('Authorization').replace('Bearer ', '');
+    if (!token) {
+      return res.status(401).json({ message: 'No token provided' });
+    }
+
+    // Decode the token
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    console.log('Decoded token:', decoded);
+
+    // Access the user ID from the decoded token
+    const userId = decoded.user._id;
+    if (!userId) {
+      return res.status(400).json({ message: 'Invalid token: No user ID found' });
+    }
+    const user = await User.findById(userId);
+    console.log(user)
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    res.json({ _id: user._id, email: user.email, name: user.name });
+  } catch (error) {
+    console.error('Error fetching current user:', error);
+    res.status(400).json({ message: 'Invalid token' });
   }
 };

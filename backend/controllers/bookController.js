@@ -33,11 +33,9 @@ exports.addBook = async (req, res) => {
   }
 };
 
-
-
 exports.getAllBooks = async (req, res) => {
   try {
-    const books = await Book.find().populate('borrowedBy', 'name email'); // Adjust fields as necessary
+    const books = await Book.find().populate('borrowedBy', 'name email');
     res.status(200).json(books);
   } catch (error) {
     console.error('Error fetching books:', error);
@@ -110,35 +108,67 @@ exports.deleteBook = async (req, res) => {
 };
 
 // bookController.js
+// exports.borrowBook = async (req, res) => {
+//   const userId = req.user._id; // Get the logged-in user's ID from the JWT token
+
+//   try {
+//     const book = await Book.findById(req.params.bookId);
+
+//     if (!book) {
+//       return res.status(404).json({ message: 'Book not found' });
+//     }
+
+//     // Check if the book is available for borrowing
+//     if (!book.isAvailable) {
+//       return res.status(400).json({ message: 'Book is already borrowed' });
+//     }
+
+//     // Update the book's borrowedBy field and availability
+//     book.borrowedBy = userId;
+//     book.isAvailable = false;
+//     await book.save();
+
+//     // Fetch the updated book data with `borrowedBy` populated
+//     const updatedBook = await Book.findById(req.params.bookId).populate(
+//       'borrowedBy',
+//       'name email' // Include desired fields from the User model
+//     );
+
+//     res.status(200).json({
+//       message: 'Book borrowed successfully',
+//       book: updatedBook, // Include the updated book with the borrowedBy field
+//     });
+//   } catch (error) {
+//     console.error('Error borrowing book:', error);
+//     res.status(500).json({ message: 'Server error. Please try again later.' });
+//   }
+// };
 exports.borrowBook = async (req, res) => {
-  const userId = req.user._id; // Get the logged-in user's ID from the JWT token
-
   try {
-    const book = await Book.findById(req.params.bookId);
+    const { id } = req.params; // Book ID from URL
+    const userId = req.user._id; // Authenticated user's ID
 
+    const book = await Book.findById(id);
     if (!book) {
       return res.status(404).json({ message: 'Book not found' });
     }
 
-    // Check if the book is available for borrowing
     if (!book.isAvailable) {
       return res.status(400).json({ message: 'Book is already borrowed' });
     }
 
-    // Update the book's borrowedBy field and availability
+    book.isAvailable = false;
     book.borrowedBy = userId;
-    book.isAvailable = false; 
     await book.save();
 
-    res.status(200).json({ 
-      message: 'Book borrowed successfully', 
-      borrowedBy: book.borrowedBy 
-    });
+    const updatedBook = await Book.findById(id).populate('borrowedBy', 'name email');
+    res.status(200).json({ message: 'Book borrowed successfully', book: updatedBook });
   } catch (error) {
-    console.error('Error borrowing book:', error);
-    res.status(500).json({ message: 'Server error. Please try again later.' });
+    console.error(error);
+    res.status(500).json({ message: 'Error borrowing book' });
   }
 };
+
 
 exports.getBorrowedBooks = async (req, res) => {
   const userId = req.user.id;
@@ -157,32 +187,27 @@ exports.getBorrowedBooks = async (req, res) => {
 
 // Return a borrowed book
 exports.returnBook = async (req, res) => {
-  const { id } = req.params;
-  const userId = req.user._id;
-
   try {
-    // Find the book by ID
-    const book = await Book.findById(id);
+    const { id } = req.params; // Book ID from URL
+    const userId = req.user._id; // Authenticated user's ID
 
+    const book = await Book.findById(id);
     if (!book) {
       return res.status(404).json({ message: 'Book not found' });
     }
 
-    // Ensure the user has borrowed the book
-    if (book.borrowedBy.toString() !== userId.toString()) {
-      return res.status(400).json({ message: 'You can only return books that you have borrowed' });
+    if (book.borrowedBy?.toString() !== userId.toString()) {
+      return res.status(403).json({ message: 'You did not borrow this book' });
     }
 
-    // Mark the book as available again
     book.isAvailable = true;
     book.borrowedBy = null;
-
     await book.save();
 
-    res.status(200).json({ message: 'Book returned successfully' });
+    res.status(200).json({ message: 'Book returned successfully', book });
   } catch (error) {
-    console.error('Error returning book:', error);
-    res.status(500).json({ message: 'Failed to return the book. Please try again later.' });
+    console.error(error);
+    res.status(500).json({ message: 'Error returning book' });
   }
 };
 
