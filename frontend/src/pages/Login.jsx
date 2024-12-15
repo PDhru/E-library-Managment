@@ -34,8 +34,8 @@ const Login = () => {
                         <div className="col-4">
                             <div className="login-form">
                                 <div className="login-head text-center">
-                                    <a href="index.html" className=" text-center mb-5"><img src="assets/images/logo.png" width="50%" alt="/" /></a>
-                                    <h4 className="title">Login Here !</h4>
+                                <a href="/" className="anim-logo text-center mb-5"><img src="assets/images/library-logo.png" width="50%" alt="/" /></a>
+                                <h4 className="title  mt-4">Login Here !</h4>
                                 </div>
 
                                 {message && <p className="text-center">{message}</p>}
@@ -75,7 +75,7 @@ const Login = () => {
                                 </form>
 
                                 <p className="text-center m-t30">Not registered?
-                                    <Link className="register text-primary font-weight-500" to={"/register"} >Register here</Link>
+                                    <Link className="register text-primary font-weight-500 ms-2" to={"/register"} >Register here</Link>
                                 </p>
                             </div>
                         </div>

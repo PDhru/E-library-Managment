@@ -6,7 +6,7 @@ const Footer = () => {
   <div className="container">
     <div className="row g-4">
       <div className="col-md-4">
-        <a href="#"><img src="assets/images/footer-logo.png" alt="Footer logo" className="img-fluid mb-3" /></a>
+        <a href="#"><img src="assets/images/library-logo.png" alt="Footer logo" width={150} className="img-fluid mb-3" /></a>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, eius ipsum dolor sit amet, consectetur
           adipiscing eliteius.</p>
         <ul className="d-flex gap-3 ps-0 pt-4 social-icons">
@@ -48,9 +48,6 @@ const Footer = () => {
         </ul>
       </div>
     </div>
-  </div>
-  <div className="copyright mt-5">
-    <p className="my-auto">© 2022 BookPress. All Rights Reserved</p>
   </div>
 </footer>
 

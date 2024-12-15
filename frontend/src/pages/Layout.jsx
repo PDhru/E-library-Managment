@@ -14,8 +14,8 @@ const Layout = () => {
             <div className="container d-flex justify-content-between align-items-center text-white">
                 <div className="overlay-out">
                     <h1 className="banner-title">Authors Books</h1>
-                    <p className="text-white"><a href="index.html" className="text-decoration-none text-white">Home</a> /
-                        <a href="products.html" className="text-decoration-none text-white">Products</a>
+                    <p className="text-white"><a href="/" className="text-decoration-none text-white">Home</a> /
+                        <a href="/" className="text-decoration-none text-white">Products</a>
                     </p>
                 </div>
                 <img src="assets/images/banner-image.png" className="img-fluid" alt="Books" />

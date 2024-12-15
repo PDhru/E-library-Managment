@@ -177,7 +177,7 @@ const Index = () => {
       <div className="container mb-3">
         <div className="row gx-5 gy-4">
           {/* Books Listing */}
-          <div className="col-md-9">
+          <div className="col-md-12">
             <div className="row row-cols-2 row-cols-md-3 gx-4 gy-4">
               {books.length > 0 ? (
                 books.map((book) => (
@@ -223,41 +223,7 @@ const Index = () => {
               )}
             </div>
           </div>
-        {/* Sidebar */}
-        < div className="col-md-3 d-flex flex-column gap-4 border rounded-2 p-4 sidebar" >
-          {/* Search Box */}
-          <div div className="search-box" >
-            <input type="search" className="form-control ps-4" name="s" placeholder="Search..." />
-            <i className="bi bi-search" />
-          </div>
-          {/* Popular Category */}
-          <div className="blog-category">
-            <h3 className="py-3 border-bottom">Popular Category</h3>
-            <ul className="mt-3 ps-0">
-              <li className="list-unstyled"><a href="#" className="ms-2">Biography</a></li>
-              <li className="list-unstyled"><a href="#" className="ms-2">Uncategorized</a></li>
-              <li className="list-unstyled"><a href="#" className="ms-2">Art &amp; Design</a></li>
-              <li className="list-unstyled"><a href="#" className="ms-2">Romance</a></li>
-              <li className="list-unstyled"><a href="#" className="ms-2">Drama</a></li>
-              <li className="list-unstyled"><a href="#" className="ms-2">Sports</a></li>
-            </ul>
-          </div>
-          {/* Tags */}
-          <div>
-            <h3 className="py-3 border-bottom">BookPress Tags</h3>
-            <span className="d-block mt-3">Biography, bestseller, adventure, biography Design, Fiction, Novel, Books</span>
-          </div>
-          {/* Social Links */}
-          <div className="social-links">
-            <h3 className="py-3 border-bottom">Follow Us:</h3>
-            <ul className="mt-3 d-flex gap-4 ps-0">
-              <li className="list-unstyled"><a href="#" target="_blank"><i className="fa-brands fa-facebook-f" /></a></li>
-              <li className="list-unstyled"><a href="#" target="_blank"><i className="fa-brands fa-twitter" /></a></li>
-              <li className="list-unstyled"><a href="#" target="_blank"><i className="fa-brands fa-linkedin-in" /></a></li>
-              <li className="list-unstyled"><a href="#" target="_blank"><i className="fa-brands fa-instagram" /></a></li>
-            </ul>
-          </div>
-        </div>
+
       </div>
     </div >
     </section >

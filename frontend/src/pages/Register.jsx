@@ -1,6 +1,6 @@
 import React, { useState  } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
 const Register = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -36,8 +36,8 @@ const Register = () => {
                         <div className="col-4">
                             <div className="login-form">
                                 <div className="login-head text-center">
-                                    <a href="index.html" className="anim-logo text-center mb-5"><img src="assets/images/logo.png" width="50%" alt="/" /></a>
-                                    <h4 className="title">Register Here !</h4>
+                                    <a href="/" className="anim-logo text-center mb-5"><img src="assets/images/library-logo.png" width="50%" alt="/" /></a>
+                                    <h4 className="title  mt-4">Register Here !</h4>
                                     {/* <p>We’d love have you join our 100% remote network of creatord &amp; freelance.</p> */}
                                 </div>
                                 {message && <p className="text-center">{message}</p>}
@@ -62,6 +62,9 @@ const Register = () => {
                                 </div>
                                 <button name="submit" value="submit" type="submit" className="btn btn-primary w-100 d-block btn-hover-2"><span>Sign Up</span></button>
                                 </form>
+                                 <p className="text-center m-t30">Already have an account ?
+                                                                    <Link className="register text-primary font-weight-500 ms-2" to={"/login"} >SigIn</Link>
+                                </p>
                             </div>
                         </div>
                     </div>

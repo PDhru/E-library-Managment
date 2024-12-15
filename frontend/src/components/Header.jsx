@@ -11,8 +11,8 @@ const Header = () => {
         <header id="navbar_top" className="bg-white">
             <div className="container">
                 <nav className="navbar navbar-expand-lg  py-3">
-                    <a className="navbar-brand" href="index.html">
-                        <img src="assets/images/logo.png" alt="Site Logo" width={200} />
+                    <a className="navbar-brand" href="/">
+                        <img src="assets/images/library-logo.png" alt="Site Logo" width={150} />
                     </a>
                     <button className="navbar-toggler me-3 ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon" />
@@ -22,7 +22,7 @@ const Header = () => {
                             <li className="nav-item"><Link className="nav-link" aria-current="page" to={"/"}>Home</Link></li>
                             <li className="nav-item"><Link className="nav-link" aria-current="page" to={"/addbooks"}>Add Books</Link></li>
                             {/* <li className="nav-item"><Link className="nav-link" aria-current="page" to={"/borrowed-books"}>Borrowed Books</Link></li> */}
-                            <li className="nav-item"><Link className="nav-link" aria-current="page" to={"/my-books"}>My Books</Link></li>
+                            <li className="nav-item"><Link className="nav-link" aria-current="page" to={"/my-books"}>Created Books</Link></li>
                         </ul>
                         <button className='btn btn-primary' onClick={handleLogout} >Logout</button>
                     </div>

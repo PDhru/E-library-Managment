@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Buda:wght@300&family=Jost:wght@500;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Buda:wght@300&family=Jost:wght@500;600;700;800&family=Poppins&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+PT+Guides&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 /* Bootstrap variables */
 :root {
   --bd-purple: #4c0bce;
@@ -15,16 +17,10 @@
 
 /*-- root variables --*/
 :root {
-  --bs-gradient: linear-gradient(90deg, #1882db 28.55%, #0197d5 82.34%);
-  --bs-body-font-family: Jost, -apple-system, BlinkMacSystemFont, Segoe UI,
-    Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
-    Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-  --bs-paragraph-font-family: Poppins, -apple-system, BlinkMacSystemFont,
-    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
-    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-  --bs-bockquote-font-family: Jost, -apple-system, BlinkMacSystemFont, Segoe UI,
-    Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
-    Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  --bs-gradient: linear-gradient(90deg, #0dd6b8 28.55%, #0197d5 82.34%);
+  --bs-body-font-family: "Poppins", sans-serif;
+  --bs-paragraph-font-family: "Poppins", sans-serif;
+  --bs-bockquote-font-family:  "Poppins", sans-serif;
   --bs-body-font-size: 1rem;
   --bs-h2-font-size: 3.125rem;
   --bs-demo-button-font-size: 1.875rem;
@@ -42,16 +38,16 @@
   --bs-footer-text-color: #a3a9bf;
   --bs-border-color: rgba(0, 0, 0, 0.07);
   --bs-navbar-active-color: #0176ff;
-  --bs-header-banner-bg: #003461;
+  --bs-header-banner-bg: #0dd6b8;
   --bs-btn-primary-gradient: linear-gradient(
     90deg,
-    #1882db 28.55%,
+    #0dd6b8 28.55%,
     #0197d5 82.34%
   );
   --bs-btn-primary-gradient-hover: linear-gradient(
     90deg,
     #0197d5 28.55%,
-    #1882db 82.34%
+    #0dd6b8 82.34%
   );
   --bs-btn-dark-gradient: linear-gradient(
     94.8deg,
@@ -66,7 +62,7 @@
   --bs-feature-primary-gradient-hover: linear-gradient(
     90deg,
     #0197d5 28.55%,
-    #1882db 82.34%
+    #0dd6b8 82.34%
   );
   --bs-border: 1.3px solid #e3e3ff;
   --bs-box-shadow: 0px 0px 38.5663px rgba(172, 163, 163, 0.15);
@@ -401,7 +397,7 @@ ul.li-unstyled {
 
 /*footer section*/
 .footer {
-  background-image: url(../images/footer-bg.png);
+  background-color: #018a75;
   background-size: cover;
 }
 .footer li,
@@ -695,17 +691,18 @@ ul.li-unstyled {
 /* font-family: 'Jost', sans-serif;
 font-family: 'Poppins', sans-serif; */
 :root {
-  --bs-color-primary: #1882db;
+  --bs-color-primary: #0dd6b8;
   --bs-color-primary-rgb: #1883db;
   --bs-font-sans-serif: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font-family: "Jost", sans-serif;
-  --gradient-primary: linear-gradient(90deg, #1882db 28.55%, #0197d5 82.34%);
+  --heading-font-family: "Poppins", sans-serif;
+  
+  --gradient-primary: linear-gradient(90deg, #0dd6b8 28.55%, #0197d5 82.34%);
   --gradient-primary-hover: linear-gradient(
     90deg,
     #0197d5 28.55%,
-    #1882db 82.34%
+    #0dd6b8 82.34%
   );
   --body-color: #212529;
   --body-bg-color: #fff;
@@ -790,11 +787,12 @@ h3 > span {
 .btn {
   padding: var(--btn-padding);
   line-height: 1;
-  border-radius: 5.50695px;
+  border-radius: 25px;
   font-family: var(--heading-font-family);
   font-weight: 500;
   font-size: 1rem;
   letter-spacing: 1px;
+  border:0px;
   transition: all 0.3s ease-in-out;
 }
 
@@ -850,7 +848,7 @@ h3 > span {
   border-radius: 50%;
   font-size: 1.5rem;
   background-color: white;
-  color: #1882db;
+  color: #0dd6b8;
   text-align: center;
   border: 2.56796px solid #f6f5f5;
   box-shadow: 0px 10.2719px 10.2719px rgba(246, 128, 11, 0.11);
@@ -865,7 +863,7 @@ h3 > span {
   border-radius: 50%;
   font-size: 2rem;
   background-color: white;
-  color: #1882db;
+  color: #0dd6b8;
   animation: grow 1s infinite;
 }
 
@@ -1815,7 +1813,7 @@ h3 > span {
   border-radius: 50%;
   font-size: 1.5rem;
   background-color: white;
-  color: #1882db;
+  color: #0dd6b8;
   text-align: center;
   box-shadow: 0px 10.2719px 10.2719px rgba(246, 128, 11, 0.11);
   transition: 0.3s;
@@ -1823,7 +1821,7 @@ h3 > span {
 
 .play-2:hover i {
   color: var(--body-bg-color);
-  background-color: #003461;
+  background-color: #0dd6b8;
   border: 1px solid var(--body-bg-color);
 }
 
@@ -1838,7 +1836,7 @@ h3 > span {
 }
 
 .index2-header-bg {
-  background: #003461;
+  background: #0dd6b8;
 }
 
 /* Hero section */
@@ -1846,7 +1844,7 @@ h3 > span {
   background-image: url(../images/index2/slider-bg.png);
   background-repeat: no-repeat;
   background-size: cover;
-  background: #003461;
+  background: #0dd6b8;
 }
 .hero-section-2 .bi::before {
   vertical-align: -0.4em;
@@ -1865,7 +1863,7 @@ h3 > span {
 }
 .hero-section-2 .btn-light:hover {
   color: var(--body-bg-color) !important;
-  background-color: #003461;
+  background-color: #0dd6b8;
 }
 .hero-section-2 .play-text-md {
   font-weight: 500;
@@ -1937,7 +1935,7 @@ h3 > span {
   background-image: url(../images/index2/main-bg-1.png);
   background-repeat: no-repeat;
   background-size: cover;
-  background: #003461;
+  background: #0dd6b8;
 }
 .help-section-2 .carousel-dots {
   bottom: -60px;
@@ -2253,7 +2251,7 @@ h3 > span {
   background: var(--body-bg-color);
 }
 .price-section-2 .price-active:hover {
-  background: #003461;
+  background: #0dd6b8;
   color: var(--body-bg-color);
 }
 .price-section-2 .price-active:hover .pricing-title-p {
@@ -2286,7 +2284,7 @@ h3 > span {
   color: #6c757d;
 }
 .newsletter-section .newsletter-feature {
-  background: #003461;
+  background: #0dd6b8;
   padding-bottom: 42px;
 }
 .newsletter-section .newsletter-feature .newsletter-icon {
@@ -2717,3 +2715,7 @@ h3 > span {
 .publicationDate{
   font-size: 12px;
 }
+.list-unstyled a{color: white !important;}
+.list-unstyled span{color: white !important;}
+.list-unstyled i{color: white !important;}
+.footer p{color: white !important;}
